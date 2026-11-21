@@ -283,9 +283,7 @@ int Optimizer:: get_which_remove () {
 
     for (int i = 0; i < testcase_size; i ++) {
         
-        int idx = testcase_pos_to_idx[i];
-        // u_int64_t res = update_unique_covered(idx);
-        u_int64_t res = sum_weight[idx];
+        u_int64_t res = sum_weight[i];
 
         if (besttcs.empty() || res == mini) {
             mini = res;

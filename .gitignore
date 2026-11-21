@@ -1,0 +1,7 @@
+*.o
+/Generator
+/Optimizer
+/SamplingCA
+/format_converter/FormatConverter
+/format_converter/ctw_parser
+
