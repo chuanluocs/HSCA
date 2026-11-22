@@ -1658,12 +1658,9 @@ void CoveringArray::tabugw() {
   // weight
   if (use_weight && (! only_use_init_weight)) {
 
-    // std::cout << uncoveredTuples.size() << "\n";
     add_weight_times ++;
-    // if (add_weight_times % 500 == 0)
-    //   std::cout << "add_weight_times = " << add_weight_times << "\n";
     if (use_Reset && add_weight_times >= reset_times)
-      Reset();
+      return Reset();
 
     for (auto tupleEncode : uncoveredTuples) {
       oneCoveredTuples.addWeight(tupleEncode);
@@ -1675,8 +1672,8 @@ void CoveringArray::tabugw() {
   }
 
   if (use_random_step && mersenne.nextClosed() < 0.001) {
-    // puts("random_step");
     random_step();
+    return;
   }
 
   if (mersenne.next(100) < __forced_greedy_percent) {
